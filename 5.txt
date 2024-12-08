@@ -1,0 +1,41 @@
+ 1.
+ 2.
+ Open your terminal or command prompt.
+ Make sure you are in the local branch that you want to rebase. You
+ can switch to the branch using the following command, replacing
+ <branch-name> with your actual branch name:
+ $ git checkout <branch-name>
+
+  1.
+ Fetch the latest changes from the remote repository. This will update your local
+ repository with the changes from the remote without merging them into your local
+ branch:
+ $ git fetch origin
+ Here, origin is the default name for the remote repository. If you have multiple remotes,
+ replace origin with the name of the specific remote you want to fetch from
+
+  1.
+ Once you have fetched the latest changes, rebase your local branch onto the updated remote
+ branch:
+ $ git rebase origin/<branch-name>
+ Replace <branch-name> with the name of the remote branch you want to rebase onto. This
+ command will reapply your local commits on top of the latest changes from the remote branch,
+ effectively incorporating the remote changes into your branch history.
+
+  1.
+ Resolve any conflicts that may arise during the rebase process. Git will
+ stop and notify you if there are conflicts that need to be resolved. Use
+ a text editor to edit the conflicting files, save the changes, and then
+ continue the rebase with:
+ $ git rebase--continue
+
+ 1.
+ 2.
+ After resolving any conflicts and completing the rebase, you have successfully updated your local branch
+ with the latest changes from the remote branch.
+ If you want to push your rebased changes to the remote repository, use the git push command. However, be
+ cautious when pushing to a shared remote branch, as it can potentially overwrite other developers' changes:
+ $ git push origin <branch-name>
+ Replace <branch-name> with the name of your local branch.By following these steps, you can keep your
+ local branch up to date with the latest changes from the remote repository and maintain a clean and linear
+ history through rebasing
