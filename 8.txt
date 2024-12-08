@@ -1,0 +1,9 @@
+ To cherry-pick a range of commits from "source-branch" to the current branch, you can use the following command:
+ $git cherry-pick <start-commit>^..<end-commit>
+ Replace <start-commit> with the commit at the beginning of the range, and <end-commit> with the commit at the 
+end of the range. The ^ symbol is used to exclude the <start-commit> itself and include all commits after it up to and 
+including <end-commit>. This will apply the changes from the specified range of commits to your current branch.
+ For example, if you want to cherry-pick a range of commits from "source-branch" starting from commit ABC123 
+and ending at commit DEF456, you would use:
+ $ git cherry-pick ABC123^..DEF456
+ Make sure you are on the branch where you want to apply these changes before running the cherry-pick command.
