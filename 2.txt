@@ -1,0 +1,35 @@
+ Creating and Managing Branches:
+ Create a new branch named "feature branch.”Switch to the" master" branch. Mergethe "feature
+branch" into "master."
+ Solution:
+ To create a new branch named "feature-branch," switch to the "master" branch, and mergethe "feature-branch"
+ into "master" in Git, follow these steps:
+ 1.
+ Make sure you are in the "master" branch by switching to it:
+ $ git checkout master
+
+ 1.
+ 1.
+ 2.
+ Create a new branch named "feature-branch" and switch to it:
+ $ git checkout -b feature-branch
+ This command will create a new branch called "feature-branch" and switch to it.
+ Make your changes in the "feature-branch" by adding, modifying, or deleting files
+ as needed.
+ Stage and commit your changes in the "feature-branch":
+  git add .
+ $ git commit -m "Your commit message for feature-branch"
+ Replace "Your commit message for feature-branch" with a descriptive
+ commit message forthe changes you made in the "feature-branch."
+ 1.
+ Switch back to the "master" branch:
+ $ git checkout master
+
+ 1.
+ Merge the "feature-branch" into the "master" branch:
+ $ git merge feature-branch
+ This command will incorporate the changes from the "feature-branch"
+ into the "master"branch.
+ Now, your changes from the "feature-branch" have been merged into the
+ "master" branch.Your project's history will reflect the changes made in 
+both branches
