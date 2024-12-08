@@ -1,1 +1,16 @@
-init
+ $ git init
+
+ Create a new file in the directory. For example, let's create a file named "my_file.txt."
+ You can use any text editor or command-line tools to create the file.
+ Add the newly created file to the staging area. Replace "my_file.txt" with the actual
+ name of your file:
+
+ $ git add my_file.txt
+
+ This command stages the file for the upcoming commit.
+
+ $ git commit -m "Your commit message here"
+ Your commit message should briefly describe the purpose or nature of the changes you made.For example:
+ $ git commit -m "Add a new file called my_file.txt"
+ After these steps, your changes will be committed to the Git repository with the provided commit message.
+ You nowhave a version of the repository with the new file and its history stored in Git
