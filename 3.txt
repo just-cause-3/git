@@ -1,0 +1,22 @@
+ Creating and Managing Branches:
+ Write the commands to stash your changes, switch branches, and then apply the stashedchanges.
+ Solution:
+ To stash your changes, switch branches, and then apply the stashed changes in Git, you canuse the
+ following commands:
+ 1.
+ Stash your changes:
+ $ git stash save "Your stash message"
+ This command will save your changes in a stash, which acts like a temporary storage forchanges that 
+are not ready to be committed.
+ 1.
+ 1.
+ Switch to the desired branch:
+ $ git checkout target-branch
+ Replace "target-branch" with the name of the branch you want to switch to.
+ Apply the stashed changes:
+ $ git stash apply
+ This command will apply the most recent stash to your current working branch. If you have multiple
+ stashes, you can specify a stash by name or reference (e.g., git stash apply stash@{2}) if needed.
+ If you want to remove the stash after applying it, you can use git stash pop instead of git stashapply.
+ Remember to replace "Your stash message" and "target-branch" with the actual message you want for your 
+stash and the name of the branch you want to switch to
