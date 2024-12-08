@@ -1,0 +1,7 @@
+ To display the last five commits in a Git repository's history, you can use the git
+ log command with the-n option, which limits the number of displayed commits.
+ Here's the command:
+ $ git log-n 5
+ This command will show the last five commits in the repository's history. You
+ can adjust the number after-n to display a different number of commits if
+ needed

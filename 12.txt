@@ -1,0 +1,9 @@
+ To undo the changes introduced by a specific commit with the ID "abc123" in Git, you can
+ use the git revert command. The git revert command creates a new commit that undoes the
+ changes made by the specified commit, effectively "reverting" the commit.
+ Here's the command:
+ $ git revert abc123
+ Replace "abc123" with the actual commit ID that you want to revert. After running this
+ command, Git will create a new commit that negates the changes introduced by the specified
+ commit. This is a safe way to undo changes in Git because it preserves the commit history
+ and creates a new commit to record the reversal of the changes.
