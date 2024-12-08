@@ -1,0 +1,23 @@
+ To view the details of a specific commit, including the author, date, and commit message,
+ you can use the git show or git log command with the commit ID. Here are both options:
+ 1.
+ Using git show:
+ bash
+ git show <commit-ID>
+ Replace <commit-ID> with the actual commit ID you want to view. This command will
+ display detailed information about the specified commit, including the commit message,
+ author, date, and the changes introduced by that commit
+
+  For example:
+ $ git show abc123
+ 1.
+ Using git log:
+ $ git log-n 1 <commit-ID>
+ The-n 1 option tells Git to show only one commit. Replace <commit-ID> with the actual commit
+ ID. This command will display a condensed view of the specified commit, including its commit
+ message, author, date, and commit ID.
+
+  For example:
+ $ git log-n 1 abc123
+ Both of these commands will provide you with the necessary information about
+ the specific commit you're interested in
