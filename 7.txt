@@ -1,0 +1,8 @@
+To create a lightweight Git tag named "v1.0" for a commit in your local repository, you can use the
+ following command:
+ $ git tag v1.0
+ This command will create a lightweight tag called "v1.0" for the most recent commit in your current
+ branch. If you want to tag a specific commit other than the most recent one, you can specify the
+ commit's SHA-1 hash after the tag name. For example:
+ $ git tag v1.0 <commit-SHA>
+ Replace <commit-SHA> with the actual SHA-1 hash of the commit you want to tag
