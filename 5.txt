@@ -39,3 +39,120 @@
  Replace <branch-name> with the name of your local branch.By following these steps, you can keep your
  local branch up to date with the latest changes from the remote repository and maintain a clean and linear
  history through rebasing
+
+
+
+
+
+
+
+
+
+
+
+┌──(denji㉿Denji)-[~/harsh]
+└─$ git clone https://github.com/just-cause-3/ok
+Cloning into 'ok'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (3/3), done.
+
+┌──(denji㉿Denji)-[~/harsh]
+└─$ cd ok
+
+┌──(denji㉿Denji)-[~/harsh/ok]
+└─$ ls
+1.txt
+
+┌──(denji㉿Denji)-[~/harsh/ok]
+└─$ git checkout fb1
+error: pathspec 'fb1' did not match any file(s) known to git
+
+┌──(denji㉿Denji)-[~/harsh/ok]
+└─$ git checkout -b fb1
+Switched to a new branch 'fb1'
+
+┌──(denji㉿Denji)-[~/harsh/ok]
+└─$ gedit 1.txt
+
+(gedit:397): dconf-WARNING **: 23:01:53.420: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
+
+┌──(denji㉿Denji)-[~/harsh/ok]
+└─$ gedit 1.txt
+
+(gedit:408): dconf-WARNING **: 23:01:58.363: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
+
+┌──(denji㉿Denji)-[~/harsh/ok]
+└─$ git fetch origin
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 920 bytes | 920.00 KiB/s, done.
+From https://github.com/just-cause-3/ok
+   ed04f91..86527dc  main       -> origin/main
+
+┌──(denji㉿Denji)-[~/harsh/ok]
+└─$ git rebase origin/fb1
+fatal: invalid upstream 'origin/fb1'
+
+┌──(denji㉿Denji)-[~/harsh/ok]
+└─$ git rebase origin/'fb1'
+fatal: invalid upstream 'origin/fb1'
+
+┌──(denji㉿Denji)-[~/harsh/ok]
+└─$ git rebase origin/main
+error: cannot rebase: You have unstaged changes.
+error: Please commit or stash them.
+
+┌──(denji㉿Denji)-[~/harsh/ok]
+└─$ git status
+On branch fb1
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+┌──(denji㉿Denji)-[~/harsh/ok]
+└─$ git add .
+
+┌──(denji㉿Denji)-[~/harsh/ok]
+└─$ git commit -m "Okay"
+[fb1 0ae4300] Okay
+ 1 file changed, 1 insertion(+)
+
+┌──(denji㉿Denji)-[~/harsh/ok]
+└─$ git status
+On branch fb1
+nothing to commit, working tree clean
+
+┌──(denji㉿Denji)-[~/harsh/ok]
+└─$ git rebase origin/main
+Auto-merging 1.txt
+CONFLICT (content): Merge conflict in 1.txt
+error: could not apply 0ae4300... Okay
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+hint: Disable this message with "git config advice.mergeConflict false"
+Could not apply 0ae4300... Okay
+
+┌──(denji㉿Denji)-[~/harsh/ok]
+└─$ gedit 1.txt
+
+(gedit:436): dconf-WARNING **: 23:04:17.031: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
+
+┌──(denji㉿Denji)-[~/harsh/ok]
+└─$ git rebase --continue
+1.txt: needs merge
+You must edit all merge conflicts and then
+mark them as resolved using git add
+
+┌──(denji㉿Denji)-[~/harsh/ok]
+└─$ git add .
+
+┌──(denji㉿Denji)-[~/harsh/ok]
+└─$ git rebase --continue
