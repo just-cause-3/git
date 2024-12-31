@@ -20,3 +20,96 @@ are not ready to be committed.
  If you want to remove the stash after applying it, you can use git stash pop instead of git stashapply.
  Remember to replace "Your stash message" and "target-branch" with the actual message you want for your 
 stash and the name of the branch you want to switch to
+
+
+
+┌──(denji㉿Denji)-[~/harsh/gg]
+└─$ git checkout master
+Switched to branch 'master'
+
+┌──(denji㉿Denji)-[~/harsh/gg]
+└─$
+
+┌──(denji㉿Denji)-[~/harsh/gg]
+└─$ git checkout fb1
+Switched to branch 'fb1'
+
+┌──(denji㉿Denji)-[~/harsh/gg]
+└─$ git stash apply
+On branch fb1
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+┌──(denji㉿Denji)-[~/harsh/gg]
+└─$ git add .
+
+┌──(denji㉿Denji)-[~/harsh/gg]
+└─$ git stash apply
+On branch fb1
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   1.txt
+
+
+┌──(denji㉿Denji)-[~/harsh/gg]
+└─$ gedit 1.txt
+
+(gedit:261): dconf-WARNING **: 22:46:51.612: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
+
+┌──(denji㉿Denji)-[~/harsh/gg]
+└─$ git commit -m "stashed"
+[fb1 2a0a7f8] stashed
+ 1 file changed, 1 insertion(+)
+
+┌──(denji㉿Denji)-[~/harsh/gg]
+└─$ git status
+On branch fb1
+nothing to commit, working tree clean
+
+┌──(denji㉿Denji)-[~/harsh/gg]
+└─$ git log --oneline
+2a0a7f8 (HEAD -> fb1) stashed
+f5f959c (master, fb2) change-1
+
+┌──(denji㉿Denji)-[~/harsh/gg]
+└─$ git checkout master
+Switched to branch 'master'
+
+┌──(denji㉿Denji)-[~/harsh/gg]
+└─$ git merge fb2
+Already up to date.
+
+┌──(denji㉿Denji)-[~/harsh/gg]
+└─$ git merge fb1
+Updating f5f959c..2a0a7f8
+Fast-forward
+ 1.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+┌──(denji㉿Denji)-[~/harsh/gg]
+└─$
+
+┌──(denji㉿Denji)-[~/harsh/gg]
+└─$ git status
+On branch master
+nothing to commit, working tree clean
+
+┌──(denji㉿Denji)-[~/harsh/gg]
+└─$ gedit 1.txt
+
+(gedit:282): dconf-WARNING **: 22:48:50.309: failed to commit changes to dconf: Failed to execute child process “dbus-launch” (No such file or directory)
+
+┌──(denji㉿Denji)-[~/harsh/gg]
+└─$ git stash list
+stash@{0}: On fb2: hello
+
+┌──(denji㉿Denji)-[~/harsh/gg]
+└─$ git stash drop 0
+Dropped refs/stash@{0} (ec9f78409aacaf0d721ff0bb9ae4d64f357a1a07)
+
+┌──(denji㉿Denji)-[~/harsh/gg]
+└─$ git stash list
